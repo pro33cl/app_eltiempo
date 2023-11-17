@@ -1,0 +1,22 @@
+/* width <=576px, CELLPHONE*/
+.table{
+   font-size: 0.7rem; 
+}
+
+.hover-table:hover{
+    font-weight: 600;
+}
+
+
+/* 576px < width < 992px , TABLETS*/
+@media(min-width: 576px){
+    .table{
+        font-size: 0.8rem; 
+    }
+}
+/* 992px < width, DESKTOP*/
+@media(min-width: 992px){
+    .table{
+        font-size: 1rem; 
+    }
+}
