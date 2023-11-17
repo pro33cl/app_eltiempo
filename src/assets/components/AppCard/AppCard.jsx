@@ -7,7 +7,7 @@ import './AppCard.css'
 
 const AppCard = (props) => {
 
-  const {data}=props;
+  const {data, handlerDelete}=props;
 
   return (
   
@@ -27,7 +27,7 @@ const AppCard = (props) => {
           <ListGroup.Item>Velocidad Viento  m/s :{data.wind_speed}</ListGroup.Item>
         </ListGroup>
         <Card.Body className='text-center'>
-          <Button variant="danger" size='sm'>Eliminar</Button>
+          <Button variant="danger" size='sm' onClick={handlerDelete} id={data.id}>Eliminar</Button>
         </Card.Body>
       </Card>
 

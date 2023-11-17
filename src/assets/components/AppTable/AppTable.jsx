@@ -18,7 +18,7 @@ const AppTable = (props) => {
 
   /* ---PROPS--- */
 
-  const {weatherMatrixShowed, widthScreen}=props;
+  const {weatherMatrixShowed, widthScreen, handlerDelete}=props;
 
   /* ---DECLARACIÓN VARIABLES--- */
 
@@ -44,9 +44,9 @@ const AppTable = (props) => {
                     <th>Ciudad</th>
                     <th>Estado</th>
                     <th>País</th>
-                    <th>Temp °C</th>
-                    <th>Temp min °C</th>
-                    <th>Temp max °C</th>
+                    <th>T °C</th>
+                    <th>T min °C</th>
+                    <th>T max °C</th>
                     {widthScreen>=992?
                       <>
                       <th>Sen T °C</th>
@@ -79,7 +79,8 @@ const AppTable = (props) => {
                                     <td>{element.main}</td>
                                     </>
                                     :null
-                                    } 
+                                    }
+                                    <td style={{color:"red",fontWeight:"bold"}} id={element.id} onClick={handlerDelete}>[X]</td> 
                                 </tr>
                                 );
                                 })

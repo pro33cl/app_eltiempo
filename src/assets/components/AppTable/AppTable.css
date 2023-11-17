@@ -17,6 +17,6 @@
 /* 992px < width, DESKTOP*/
 @media(min-width: 992px){
     .table{
-        font-size: 1rem; 
+        font-size: 0.9rem; 
     }
 }

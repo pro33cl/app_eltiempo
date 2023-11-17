@@ -135,6 +135,22 @@ const AppLanding = (props) => {
         SetFilter(dlgFilterForm.current.value);
     }
 
+    const handlerDelete=function(e){
+      let id=e.target.id;
+      let sizeMatrix=weatherMatrix.length;
+      let index;
+      for(let i=0;i<sizeMatrix;i++){
+        if(weatherMatrix[i].id==id){
+          index=i;
+        }
+      }
+      console.log(index);
+      let weatherMatrixCopy= JSON.parse(JSON.stringify(weatherMatrix));
+      weatherMatrixCopy[index].on=false;
+      console.log(weatherMatrixCopy);
+      SetWeatherMatrix(weatherMatrixCopy);
+    }
+
     /* ---FUNCIONES--- */
 
     const selectCountry=function(){
@@ -172,7 +188,7 @@ const AppLanding = (props) => {
     }
 
     const showMatrix= function(weatherMatrix){
-        var matrixFiltered= weatherMatrix.filter((element)=>(element.city).toLowerCase().includes(filter.toLowerCase()) || (element.state).toLowerCase().includes(filter.toLowerCase()) || (element.country).toLowerCase().includes(filter.toLowerCase()));
+        var matrixFiltered= weatherMatrix.filter((element)=>((element.city).toLowerCase().includes(filter.toLowerCase()) || (element.state).toLowerCase().includes(filter.toLowerCase()) || (element.country).toLowerCase().includes(filter.toLowerCase())) && element.on==true);
         SetWeatherMatrixShowed(matrixFiltered);
     }
 
@@ -182,7 +198,7 @@ const AppLanding = (props) => {
                           lon:dataCountrySelected.lon,temp: data.main.temp, temp_min: data.main.temp_min, temp_max: data.main.temp_max, 
                           feels_like: data.main.feels_like , pressure: data.main.pressure,humidity: data.main.humidity, 
                           clouds: data.clouds.all, visibility: data.visibility,wind_speed: data.wind.speed, 
-                          main: data.weather[0].main};
+                          main: data.weather[0].main, on:true};
         return dataFormated;
     }
 
@@ -203,11 +219,11 @@ const AppLanding = (props) => {
       else{
         switch (typeView) {
           case "cardGallery":
-              return(<AppCardGallery weatherMatrixShowed={weatherMatrixShowed}></AppCardGallery>);
+              return(<AppCardGallery weatherMatrixShowed={weatherMatrixShowed} handlerDelete={handlerDelete}></AppCardGallery>);
               break;
       
           case "table":
-              return(<AppTable weatherMatrixShowed={weatherMatrixShowed} widthScreen={screenDimension.width}></AppTable>);
+              return(<AppTable weatherMatrixShowed={weatherMatrixShowed} widthScreen={screenDimension.width} handlerDelete={handlerDelete}></AppTable>);
               break;
         }
       }

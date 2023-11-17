@@ -4,7 +4,7 @@ import './AppCardGallery.css';
 
 const AppCardGallery = (props) => {
 
-  const {weatherMatrixShowed}=props;
+  const {weatherMatrixShowed, handlerDelete}=props;
 
   return (
     <div className='container-cards'>
@@ -12,7 +12,7 @@ const AppCardGallery = (props) => {
             weatherMatrixShowed.map((element)=>{
               return (
                       <div key={element.id}>
-                        <AppCard data={element}></AppCard>
+                        <AppCard data={element} handlerDelete={handlerDelete}></AppCard>
                       </div>
                       );
             })           
