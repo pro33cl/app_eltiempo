@@ -5,9 +5,9 @@
 }
 
 .footer{
-  position:absolute;
+  /*position:absolute;
   bottom:0px;
-  left:0px;
+  left:0px;*/
   width: 100vw;
   height: 48px;
   display: flex;
@@ -28,14 +28,13 @@
 }
 
 .page{
-  position:absolute;
+  /*position:absolute;
   top:88px;
-  left:0px;
+  left:0px;*/
   width: 100vw;
   max-height: calc(100vh-136px);
   overflow: hidden;
 }
-
 
 .screen{
   margin: 0px;
