@@ -46,10 +46,6 @@ function App() {
   /* ---DECLARACIÓN VARIABLES--- */
 
   var pageHeigth= `${screenDimension.heigth - footerHeigth - navbarHeigth}px`;
-  console.log(pageHeigth);
-  console.log(screenDimension.heigth);
-  console.log(screen.availHeight);
-  console.log(screenDimensionInit);
 
   /* ---EFECTOS SECUNDARIOS--- */
 

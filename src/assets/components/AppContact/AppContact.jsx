@@ -4,10 +4,36 @@ import Form from 'react-bootstrap/Form';
 
 const AppContact = () => {
 
+  /*  ---INDICE--- 
+  1.- PROPS
+  2.- DECLARACIÓN VARIABLES
+  3.- DECLARACIÓN ESTADOS
+  4.- REFERENCIAS useRef()
+  5.- EFECTOS SECUNDARIOS
+  6.- FUNCIONES API
+  7.- HANDLERS
+  8.- FUNCIONES
+  9.- RETURN
+  */
+
+  /* ---PROPS--- */
+
+  /* ---DECLARACIÓN VARIABLES--- */
+
   const messageInit={name:"", email:"", message:""};
+  
+  /* ---DECLARACIÓN ESTADOS--- */
+
   const [message, SetMessage]=useState(messageInit);
+    
+  /* ---REFERENCIAS useRef()--- */
   
+  /* ---EFECTOS SECUNDARIOS--- */
   
+  /* ---FUNCIONES API--- */
+  
+  /* ---HANDLERS--- */
+
   const handlerChange=function(e){
     SetMessage({...message,[e.target.name]:e.target.value});
   }
@@ -17,13 +43,17 @@ const AppContact = () => {
     enviarBackend(message);
     SetMessage(messageInit);
   }
-
+  
+  /* ---FUNCIONES--- */
 
   const enviarBackend=function(message){
     console.log("mensaje enviado a Backend:");
     console.log(message);
   }
   
+  
+  /* ---RETURN--- */
+
   return (
 
     <Form style={{width:"100%", padding:"1rem"}} onSubmit={handlerSubmit}>

@@ -63,7 +63,6 @@ const AppLanding = (props) => {
     useEffect(()=>{
         try{
           if(!dataCountrySelected.code==""){
-            console.log(dataCountrySelected);
             apiWeatherConsult("e5e0825037fb55c98e545b5f61aa735c");
           }
         }
@@ -144,10 +143,8 @@ const AppLanding = (props) => {
           index=i;
         }
       }
-      console.log(index);
       let weatherMatrixCopy= JSON.parse(JSON.stringify(weatherMatrix));
       weatherMatrixCopy[index].on=false;
-      console.log(weatherMatrixCopy);
       SetWeatherMatrix(weatherMatrixCopy);
     }
 
